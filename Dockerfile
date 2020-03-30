@@ -9,7 +9,7 @@ RUN apk update && apk add --no-cache --update \
     cp gzexe gzip /bin
 
 # Release Stage
-FROM alpine:latest AS release
+FROM scratch AS release
 
-COPY --from=build /bin/gzip /bin
-COPY --from=build /bin/gzexe /bin
+COPY --from=build /bin/gzip /bin/
+COPY --from=build /bin/gzexe /bin/
